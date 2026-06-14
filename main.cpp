@@ -30,9 +30,6 @@ int SDL_WaitEventTimeout_hooked(SDL_Event *event, int timeout){
 
 	int orig_result;
 	DETOUR_ORIG_GET(&SDL_WaitEventTimeout_detour_ctx, orig_result, SDL_WaitEventTimeout_orig, event, timeout);
-	if (is_steam_input){
-		return orig_result;
-	}
 	if (orig_result == 0){
 		return orig_result;
 	}
